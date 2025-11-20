@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Nos Casamos! - Boda Civil Kikey & Frank</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Kikey &<span class="highlight">Frank</span></div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    
+        <ul class="nav-links">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#donde">Ubicación</a></li>
+            <li><a href="#rsvp" class="btn-nav">CONFIRMAR</a></li>
+        </ul>
+    </nav>
+
+    <header id="hero" class="hero-section">
+        <div class="hero-content">
+            <span class="badge">¡En pleno uso de nuestras  facultades mentales!</span>
+            <h1>VAMOS A FIRMAR <br> <span class="highlight">EL PAPELITO</span></h1>
+            <p class="subtitle">SIN RETORNOS <span>✖</span> SIN REEMBOLSOS <span>✖</span> <strong class="amor">100% AMOR</strong></p>
+            <div class="countdown-container">
+                <div id="countdown">00 Días : 00 Hrs</div>
+            
+    </header>
+    <section id="video-section" class="container">
+        <div class="video-card">
+            <div class="tv-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="tv-title">SPOILER_ALERT.mp4</span>
+            </div>
+            
+            <div class="video-wrapper">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://player.vimeo.com/video/1139027428?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="video-caption">
+                <p>🍿 Prepara las palomitas. Esto se va a poner bueno.</p>
+            </div>
+        </div>
+    </section>
+    <section id="historia" class="container">
+        <div class="fun-card">
+            <h2>El Expediente X</h2>
+            <p>Dicen que los polos opuestos se atraen. En nuestro caso, chocaron y decidieron pagar impuestos juntos.</p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1,400</h3>
+                    <p>Tacos comidos</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2</h3>
+                    <p>Perritos adoptados</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1/2</h3>
+                    <p>Boda épica</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="donde" class="container split-section">
+        <div class="fun-card map-card">
+            <h2>La Ubicación</h2>
+            <p>Registro Civil No. 1 (O el lugar del evento)</p>
+            <div class="map-placeholder">MAPA DE GOOGLE AQUÍ</div>
+        </div>
+        <div class="fun-card info-card">
+            <h2>Código de Vestimenta</h2>
+            <p><strong>Estilo:</strong> Cómodo pero Guapo/a.</p>
+            <ul class="checklist">
+                <li>✅ Zapatos para bailar</li>
+                <li>✅ Buena actitud</li>
+                <li>❌ Trajes aburridos</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="rsvp" class="rsvp-section">
+        <div class="rsvp-container">
+            <h2>¿Vienes o te lo pierdes?</h2>
+            <form id="rsvp-form">
+                <div class="form-group">
+                    <label>Nombre del culpable:</label>
+                    <input type="text" placeholder="Tu nombre aquí" required>
+                </div>
+                <div class="form-group">
+                    <label>Estado:</label>
+                    <select>
+                        <option>¡Obvio voy!</option>
+                        <option>No, soy aguafiestas</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-main">Enviar Confirmación</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>Hecho con ❤️ y mucho ☕ por los novios.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
