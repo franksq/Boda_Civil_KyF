@@ -61,16 +61,41 @@ h1, h2, h3 {
 }
 
 /* Hero Section */
+/* --- HERO SECTION CON IMAGEN DE FONDO --- */
+
 .hero-section {
-    height: 90vh;
+    height: 90vh; /* Altura del 90% de la pantalla */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: var(--accent); /* Fondo amarillo impactante */
     border-bottom: var(--border);
-    background-image: radial-gradient(var(--dark) 1px, transparent 1px);
-    background-size: 20px 20px; /* Patrón de puntos */
+    color: white; /* Forzamos que todo el texto aquí sea blanco para que se lea */
+
+    /* --- AQUÍ ESTÁ LA MAGIA DEL FONDO --- */
+
+    /* Usamos un truco: "linear-gradient" encima de la "url".
+       Esto crea una capa negra semitransparente (rgba 0,0,0,0.5) sobre tu foto.
+       Sin esto, ¡el texto blanco probablemente no se leería bien sobre la foto!
+       Puedes aumentar el 0.5 a 0.7 si necesitas más oscuridad, o bajarlo a 0.3.
+    */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('portada-boda.jpg');
+
+    /* Asegura que la imagen cubra todo el espacio sin deformarse */
+    background-size: cover;
+    
+    /* Centra la imagen para que se vea la parte importante */
+    background-position: center center;
+    
+    /* Evita que se repita tipo mosaico */
+    background-repeat: no-repeat;
+}
+
+/* Ajuste opcional: Si el título h1 tiene fondo blanco, quizás quieras quitárselo ahora */
+.hero-content h1 {
+    /* background: white;  <-- Si tenías esto, coméntalo o bórralo */
+    background: transparent; /* O ponlo transparente */
+    text-shadow: 3px 3px 0px var(--dark); /* Añade sombra para que resalte sobre la foto */
 }
 
 .hero-content h1 {
