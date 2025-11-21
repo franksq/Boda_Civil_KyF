@@ -423,7 +423,7 @@ body {
     gap: 20px;
     flex-wrap: wrap;
     margin-top: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     perspective: 1000px; /* Para efectos 3D si se necesitan */
 }
 
