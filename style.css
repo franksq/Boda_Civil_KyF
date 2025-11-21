@@ -40,7 +40,10 @@ h1, h2, h3 {
     padding: 0 20px;
 }
 
-.highlight { color: var(--primary); }
+.highlight { 
+    color: var(--primary); 
+    text-align: center;
+}
 
 /* Botones */
 .btn-main {
