@@ -704,3 +704,121 @@ body {
         font-size: 5rem;
     }
 }
+/* Contenedor principal centrado */
+.gift-card-wrapper {
+    text-align: center;
+    position: relative;
+    padding: 40px;
+    background: white;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    margin-bottom: 50px;
+}
+
+/* Tira de cinta adhesiva decorativa arriba */
+.tape-strip {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    background: var(--accent); /* Amarillo */
+    color: var(--dark);
+    padding: 5px 30px;
+    font-weight: bold;
+    border: 2px solid var(--dark);
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+/* La tarjeta bancaria falsa */
+.bank-ticket {
+    background: var(--dark);
+    color: white;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 15px; /* Bordes redondeados estilo tarjeta */
+    border: 2px solid white;
+    box-shadow: 10px 10px 0px var(--primary); /* Sombra rosa */
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto brillo en la tarjeta */
+.bank-ticket::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg, 
+        transparent, 
+        rgba(255,255,255,0.1), 
+        transparent
+    );
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.chip {
+    font-size: 2rem;
+}
+
+.account-info label {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    letter-spacing: 2px;
+    display: block;
+    margin-top: 10px;
+}
+
+.number-display {
+    font-family: monospace;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: var(--accent); /* Amarillo */
+    word-break: break-all; /* Por si lo ven en cel muy pequeño */
+}
+
+.name-display {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.ticket-footer {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255,255,255,0.3);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.note {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    .number-display {
+        font-size: 1.1rem;
+    }
+    .gift-card-wrapper {
+        padding: 40px 15px;
+    }
+}
