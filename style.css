@@ -263,41 +263,100 @@ h1, h2, h3 {
 /* =========================================
    5. CONTADOR (COUNTDOWN)
    ========================================= */
+/* --- CONTADOR (FIXED BOTTOM & MINI) --- */
 #countdown {
+    /* 1. LO SACAMOS DEL FLUJO PARA QUE NO EMPUJE NADA */
+    position: absolute; 
+    bottom: 20px; /* Pegado al fondo (ajusta si lo quieres más arriba) */
+    left: 0; 
+    right: 0; /* Left+Right+Margin auto sirve para centrar cosas absolutas */
+    
+    /* 2. AJUSTES DE VISUALIZACIÓN */
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 10px; /* Menos espacio entre cajas */
     flex-wrap: wrap;
-    margin-top: 0px;
-    margin-bottom: 10px;
+    margin: 0 auto; /* Centrado horizontal */
+    z-index: 10; /* Asegura que esté encima de la foto */
     perspective: 1000px;
 }
 
+/* Estilo de las cajitas (versión mini) */
 .time-box {
     position: relative;
-    padding: 8px 10px;
+    padding: 5px 8px; /* Mucho menos relleno */
     border-width: 2px;
-    box-shadow: 8px 8px 0px rgba(0,0,0,1);
+    box-shadow: 4px 4px 0px rgba(0,0,0,1); /* Sombra más pequeña */
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 60px;
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-width: 45px; /* Ancho fijo más angosto */
+    
+    /* Esto suaviza la animación para que no se vea tosca */
+    transition: transform 0.2s ease-out; 
 }
 
-.time-box:hover { transform: scale(1.1) rotate(0deg) !important; z-index: 10; box-shadow: 12px 12px 0px rgba(0,0,0,1); }
+/* Ajuste de colores y rotaciones (igual que antes) */
 .time-box:nth-child(1) { background-color: #ff0055; color: white; transform: rotate(-3deg); }
-.time-box:nth-child(2) { background-color: #00e1ff; color: var(--dark); transform: rotate(3deg) translateY(-10px); }
+.time-box:nth-child(2) { background-color: #00e1ff; color: var(--dark); transform: rotate(3deg); }
 .time-box:nth-child(3) { background-color: #ccff00; color: var(--dark); transform: rotate(-2deg); }
-.time-box:nth-child(4) { background-color: white; color: var(--dark); border-color: #ff0055; transform: rotate(4deg) translateY(5px); animation: latido 1s infinite; }
 
-.number { font-size: 1.5rem; font-weight: 900; font-family: 'Syne', sans-serif; line-height: 1; text-shadow: 3px 3px 0px var(--dark); }
-.label { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; background: var(--dark); color: white; padding: 2px 8px; }
+/* El segundero con animación, pero controlada */
+.time-box:nth-child(4) { 
+    background-color: white; 
+    color: var(--dark); 
+    border-color: #ff0055; 
+    transform: rotate(2deg); 
+    animation: latido-suave 1s infinite; 
+}
 
-@keyframes latido {
-    0% { transform: rotate(4deg) translateY(5px) scale(1); }
-    50% { transform: rotate(4deg) translateY(5px) scale(1.05); }
-    100% { transform: rotate(4deg) translateY(5px) scale(1); }
+/* Números más pequeños */
+.number {
+    font-size: 1.2rem; /* Antes era 1.5rem */
+    font-weight: 900;
+    font-family: 'Syne', sans-serif;
+    line-height: 1;
+    text-shadow: 1px 1px 0px var(--dark); /* Sombra de texto más fina */
+}
+
+/* Texto DÍAS/HRS más pequeño */
+.label {
+    font-size: 0.5rem; /* Letra pequeñita */
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-top: 2px;
+    background: var(--dark);
+    color: white;
+    padding: 1px 4px;
+}
+
+/* Nueva animación que NO afecta el tamaño de los vecinos */
+@keyframes latido-suave {
+    0% { transform: rotate(2deg) scale(1); }
+    50% { transform: rotate(2deg) scale(1.1); } /* Crece un poquito */
+    100% { transform: rotate(2deg) scale(1); }
+}
+
+/* Ajuste crítico para móviles */
+@media (max-width: 768px) {
+    #countdown {
+        bottom: 30px; /* Un poco más arriba en cel para no chocar con bordes */
+        gap: 5px;
+    }
+    
+    .time-box {
+        min-width: 40px;
+        padding: 4px 5px;
+    }
+    
+    .number {
+        font-size: 1rem; /* Números compactos */
+    }
+    
+    .label {
+        font-size: 0.4rem;
+        display: none; /* OPCIONAL: Si quieres ahorrar más espacio, borra esta línea. */
+    }
 }
 
 /* =========================================
