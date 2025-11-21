@@ -192,47 +192,102 @@ h1, h2, h3 {
 .subtitle:hover { transform: rotate(0deg) scale(1.05); box-shadow: 12px 12px 0px var(--primary); cursor: help; }
 
 /* =========================================
-   5. CONTADOR (FIXED BOTTOM & MINI)
+   5. CONTADOR (ESTILO TEXTO FLOTANTE / SIN CAJAS)
    ========================================= */
+
 #countdown {
-    /* POSICIÓN FIJA AL FONDO */
+    /* Posición fija al fondo, flotando sobre la foto */
     position: absolute; 
-    bottom: 20px; 
+    bottom: 40px; /* Ajusta esto si quieres subirlo o bajarlo */
     left: 0; 
     right: 0; 
+    
     display: flex;
     justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin: 0 auto;
+    gap: 15px; /* Espacio entre los grupos de números */
     z-index: 10; 
-    perspective: 1000px;
 }
 
 .time-box {
-    position: relative;
-    padding: 5px 8px; /* Mini padding */
-    border-width: 2px;
-    box-shadow: 4px 4px 0px rgba(0,0,0,1);
+    /* Eliminamos las cajas, bordes y sombras de caja */
+    background: transparent !important; 
+    border: none;
+    box-shadow: none !important;
+    padding: 0;
+    min-width: auto;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 45px; /* Mini ancho */
-    transition: transform 0.2s ease-out; 
+    
+    /* Quitamos las rotaciones para que sea más limpio y legible */
+    transform: none !important; 
 }
 
-.time-box:nth-child(1) { background-color: #ff0055; color: white; transform: rotate(-3deg); }
-.time-box:nth-child(2) { background-color: #00e1ff; color: var(--dark); transform: rotate(3deg); }
-.time-box:nth-child(3) { background-color: #ccff00; color: var(--dark); transform: rotate(-2deg); }
-.time-box:nth-child(4) { background-color: white; color: var(--dark); border-color: #ff0055; transform: rotate(2deg); animation: latido-suave 1s infinite; }
+/* EL NÚMERO (GRANDE Y CLARO) */
+.number {
+    font-size: 2.5rem; /* Tamaño grande */
+    font-weight: 900;
+    font-family: 'Syne', sans-serif;
+    color: white;
+    line-height: 1;
+    
+    /* ESTO ES CLAVE: Sombra dura para que se lea sobre cualquier foto */
+    text-shadow: 
+        3px 3px 0 #000,
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
 
-.number { font-size: 1.2rem; font-weight: 900; font-family: 'Syne', sans-serif; line-height: 1; text-shadow: 1px 1px 0px var(--dark); }
-.label { font-size: 0.5rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; background: var(--dark); color: white; padding: 1px 4px; }
+/* LAS ETIQUETAS (DÍAS, HRS...) */
+.label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary); /* Las ponemos en color rosa/rojo para destacar */
+    margin-top: 5px;
+    background: transparent;
+    padding: 0;
+    
+    /* Sombra negra suave para lectura */
+    text-shadow: 1px 1px 0 #000; 
+}
 
-@keyframes latido-suave {
-    0% { transform: rotate(2deg) scale(1); }
-    50% { transform: rotate(2deg) scale(1.1); }
-    100% { transform: rotate(2deg) scale(1); }
+/* Pequeño separador visual entre números (Opcional) */
+.time-box:not(:last-child)::after {
+    content: ':';
+    position: absolute;
+    right: -12px;
+    top: 0px;
+    font-size: 2rem;
+    color: white;
+    font-family: 'Syne', sans-serif;
+    text-shadow: 2px 2px 0 #000;
+    opacity: 0.5; /* Un poco transparente */
+}
+
+/* AJUSTES PARA MÓVIL */
+@media (max-width: 768px) {
+    #countdown {
+        bottom: 50px; /* Posición en celular */
+        gap: 10px;
+    }
+
+    .number {
+        font-size: 1.8rem; /* Un poco más chicos en celular */
+    }
+
+    .label {
+        font-size: 0.5rem;
+    }
+    
+    .time-box:not(:last-child)::after {
+        right: -8px;
+        font-size: 1.5rem;
+    }
 }
 
 /* =========================================
