@@ -192,101 +192,101 @@ h1, h2, h3 {
 .subtitle:hover { transform: rotate(0deg) scale(1.05); box-shadow: 12px 12px 0px var(--primary); cursor: help; }
 
 /* =========================================
-   5. CONTADOR (ESTILO TEXTO FLOTANTE / SIN CAJAS)
+   5. CONTADOR (ESTILO TEXTO FLOTANTE + ETIQUETAS)
    ========================================= */
 
 #countdown {
-    /* Posición fija al fondo, flotando sobre la foto */
     position: absolute; 
-    bottom: 40px; /* Ajusta esto si quieres subirlo o bajarlo */
+    bottom: 40px; /* Ajusta altura */
     left: 0; 
     right: 0; 
     
     display: flex;
     justify-content: center;
-    gap: 15px; /* Espacio entre los grupos de números */
+    gap: 15px; 
     z-index: 10; 
 }
 
 .time-box {
-    /* Eliminamos las cajas, bordes y sombras de caja */
     background: transparent !important; 
     border: none;
     box-shadow: none !important;
     padding: 0;
-    min-width: auto;
+    min-width: 50px; /* Un ancho mínimo para que no bailen */
     
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    /* Quitamos las rotaciones para que sea más limpio y legible */
     transform: none !important; 
 }
 
-/* EL NÚMERO (GRANDE Y CLARO) */
+/* EL NÚMERO */
 .number {
-    font-size: 2.5rem; /* Tamaño grande */
+    font-size: 2.5rem;
     font-weight: 900;
     font-family: 'Syne', sans-serif;
     color: white;
     line-height: 1;
-    
-    /* ESTO ES CLAVE: Sombra dura para que se lea sobre cualquier foto */
-    text-shadow: 
-        3px 3px 0 #000,
-        -1px -1px 0 #000,  
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px 1px 0 #000;
 }
 
-/* LAS ETIQUETAS (DÍAS, HRS...) */
+/* LAS ETIQUETAS (DÍAS, HRS...) - AQUÍ ESTÁ LA MAGIA */
 .label {
+    display: block; /* Aseguramos que se muestren */
     font-size: 0.7rem;
-    font-weight: bold;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--primary); /* Las ponemos en color rosa/rojo para destacar */
+    letter-spacing: 1px;
+    
+    /* Color amarillo para que destaque full sobre la foto */
+    color: var(--accent); 
+    
     margin-top: 5px;
     background: transparent;
     padding: 0;
     
-    /* Sombra negra suave para lectura */
+    /* Sombra negra para leerse bien */
     text-shadow: 1px 1px 0 #000; 
 }
 
-/* Pequeño separador visual entre números (Opcional) */
+/* Los dos puntos separadores (:) */
 .time-box:not(:last-child)::after {
     content: ':';
     position: absolute;
-    right: -12px;
-    top: 0px;
+    right: -10px;
+    top: 5px; /* Ajustado para alinearse al número */
     font-size: 2rem;
     color: white;
     font-family: 'Syne', sans-serif;
     text-shadow: 2px 2px 0 #000;
-    opacity: 0.5; /* Un poco transparente */
+    opacity: 0.8; 
 }
 
 /* AJUSTES PARA MÓVIL */
 @media (max-width: 768px) {
     #countdown {
-        bottom: 50px; /* Posición en celular */
-        gap: 10px;
+        bottom: 60px; /* Un poco más arriba en cel */
+        gap: 5px; /* Menos espacio entre columnas */
+    }
+
+    .time-box {
+        min-width: 40px; /* Más compacto */
     }
 
     .number {
-        font-size: 1.8rem; /* Un poco más chicos en celular */
+        font-size: 1.8rem; 
     }
 
     .label {
-        font-size: 0.5rem;
+        /* IMPORTANTE: Aquí antes decía 'display: none'. Lo cambiamos a block */
+        display: block !important; 
+        font-size: 0.5rem; /* Letra pequeña pero legible */
     }
     
     .time-box:not(:last-child)::after {
-        right: -8px;
+        right: -6px;
         font-size: 1.5rem;
+        top: 2px;
     }
 }
 
