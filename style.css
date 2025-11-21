@@ -267,7 +267,7 @@ h1, h2, h3 {
 #countdown {
     /* 1. LO SACAMOS DEL FLUJO PARA QUE NO EMPUJE NADA */
     position: absolute; 
-    bottom: 0px; /* Pegado al fondo (ajusta si lo quieres más arriba) */
+    bottom: 20px; /* Pegado al fondo (ajusta si lo quieres más arriba) */
     left: 0; 
     right: 0; /* Left+Right+Margin auto sirve para centrar cosas absolutas */
     
@@ -440,15 +440,31 @@ input, select { width: 100%; padding: 12px; margin-bottom: 15px; border: 2px sol
     .nav-links a { font-size: 1.5rem; }
 
     /* Hero */
-    .hero-content h1 { font-size: 2rem; }
-    .hero-content { height: 95%; }
+    .hero-content h1 { font-size: 1.8rem;
+                        margin-bottom: 0;
+    }
+    .hero-content { 
+        height: 95%; 
+        justify-content: flex-start; /* Todo se alinea hacia arriba */
+        padding-top: 40px; /* Un poco de aire arriba para que no toque el borde */
+        gap: 15px; /* Espacio automático entre el badge, título y subtítulo */
+    }
     
     /* Contador */
+    #countdown {
+        bottom: 80px; /* Lo subimos un poco más para librar la barra de navegación del navegador móvil */
+        gap: 5px;
+    }
     .time-box { min-width: 70px; padding: 10px; margin-bottom: 15px; }
     .number { font-size: 2rem; }
 
     /* Subtítulo */
-    .subtitle { font-size: 0.9rem; padding: 10px 15px; width: 90%; }
+    .subtitle { 
+        font-size: 0.7rem; padding: 10px 15px; width: auto; 
+        margin-top: 5px; /* Reducimos el margen para que quede cerquita del título */
+        margin-bottom: 0;
+        max-width: 90%;
+    }
 
     /* Logística */
     .logistics-grid { grid-template-columns: 1fr; }
