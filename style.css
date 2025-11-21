@@ -71,7 +71,7 @@ h1, h2, h3 {
     align-items: center;
     justify-content: center;
     /* Mantenemos tu fondo de imagen aquí... */
-    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('nombre-de-tu-foto.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('arcos-save-the-date.jpg');
     background-size: cover;
     background-position: center center;
     padding: 20px; /* Un poco de margen para que no toque los bordes */
