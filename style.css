@@ -8,7 +8,7 @@
     --accent: #ffe66d;    /* Amarillo vibrante */
     --dark: #1a1a1a;      /* Negro suave */
     --border: 3px solid var(--dark);
-    --shadow: 6px 6px 0px var(--dark); /* Sombra sólida estilo comic */
+    --shadow: 6px 6px 0px var(--dark);
 }
 
 * {
@@ -32,7 +32,7 @@ h1, h2, h3 {
 }
 
 /* =========================================
-   2. UTILIDADES Y COMPONENTES GENERALES
+   2. UTILIDADES Y COMPONENTES
    ========================================= */
 .container {
     max-width: 1000px;
@@ -40,11 +40,9 @@ h1, h2, h3 {
     padding: 0 20px;
 }
 
-.highlight {
-    color: var(--primary);
-}
+.highlight { color: var(--primary); }
 
-/* Botones estilo "Pop" */
+/* Botones */
 .btn-main {
     display: inline-block;
     background-color: var(--primary);
@@ -59,15 +57,8 @@ h1, h2, h3 {
     font-size: 1.2rem;
 }
 
-.btn-main:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 8px 8px 0px var(--dark);
-}
-
-.btn-main:active {
-    transform: translate(4px, 4px);
-    box-shadow: 0px 0px 0px var(--dark);
-}
+.btn-main:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0px var(--dark); }
+.btn-main:active { transform: translate(4px, 4px); box-shadow: 0px 0px 0px var(--dark); }
 
 /* Cards generales */
 .fun-card {
@@ -80,7 +71,7 @@ h1, h2, h3 {
 }
 
 /* =========================================
-   3. BARRA DE NAVEGACIÓN (NAVBAR)
+   3. BARRA DE NAVEGACIÓN
    ========================================= */
 .navbar {
     background: white;
@@ -90,76 +81,23 @@ h1, h2, h3 {
     align-items: center;
     padding: 0 30px;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 1000;
     border-bottom: var(--border);
     box-shadow: 0 4px 0 rgba(0,0,0,0.1);
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 900;
-    font-family: 'Syne', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    cursor: pointer;
-}
+.logo { font-size: 1.5rem; font-weight: 900; font-family: 'Syne', sans-serif; text-transform: uppercase; letter-spacing: -1px; cursor: pointer; }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    gap: 20px;
-}
+.nav-links { display: flex; list-style: none; align-items: center; gap: 20px; }
+.nav-links a { text-decoration: none; color: var(--dark); font-weight: bold; font-size: 1rem; padding: 5px 10px; transition: 0.2s; position: relative; }
+.nav-links a:not(.btn-nav):hover { background-color: var(--accent); box-shadow: 4px 4px 0 var(--dark); border: 2px solid var(--dark); transform: translate(-2px, -2px); }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 5px 10px;
-    transition: 0.2s;
-    position: relative;
-}
+.btn-nav { background-color: var(--dark); color: white !important; padding: 10px 20px !important; border: 2px solid var(--dark); box-shadow: 4px 4px 0 var(--primary); }
+.btn-nav:hover { background-color: var(--primary); box-shadow: 4px 4px 0 var(--dark); transform: translate(-2px, -2px); }
 
-.nav-links a:not(.btn-nav):hover {
-    background-color: var(--accent);
-    box-shadow: 4px 4px 0 var(--dark);
-    border: 2px solid var(--dark);
-    transform: translate(-2px, -2px);
-}
-
-.btn-nav {
-    background-color: var(--dark);
-    color: white !important;
-    padding: 10px 20px !important;
-    border: 2px solid var(--dark);
-    box-shadow: 4px 4px 0 var(--primary);
-}
-
-.btn-nav:hover {
-    background-color: var(--primary);
-    box-shadow: 4px 4px 0 var(--dark);
-    transform: translate(-2px, -2px);
-}
-
-.menu-toggle {
-    display: none; /* Oculto en PC */
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-    padding: 5px;
-    border: 2px solid var(--dark);
-    box-shadow: 3px 3px 0 var(--dark);
-}
-
-.menu-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--dark);
-}
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; padding: 5px; border: 2px solid var(--dark); box-shadow: 3px 3px 0 var(--dark); }
+.menu-toggle .bar { width: 25px; height: 3px; background-color: var(--dark); }
 
 /* =========================================
    4. HERO SECTION (PORTADA)
@@ -170,11 +108,12 @@ h1, h2, h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* IMPORTANTE: Verifica que el nombre de tu imagen sea correcto */
+    /* IMAGEN DE FONDO */
     background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('arcos-save-the-date.jpg');
     background-size: cover;
     background-position: center center;
     padding: 20px;
+    position: relative; /* Necesario para que el contador absoluto funcione */
 }
 
 .hero-content {
@@ -183,7 +122,8 @@ h1, h2, h3 {
     max-width: 900px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Separa titulo arriba y contador abajo */
+    /* ESCRITORIO: Separa Titulo (arriba) y Subtítulo (abajo) */
+    justify-content: space-between; 
     align-items: center;
 }
 
@@ -193,15 +133,12 @@ h1, h2, h3 {
     margin-bottom: 15px;
     background: transparent;
     padding: 20px;
-    /* Quitamos borde y sombra de caja para que se lea mejor sobre la foto */
-    /* border: var(--border); */
-    /* box-shadow: 2px 2px 0px var(--dark); */
     text-shadow: 3px 3px 0px var(--dark); 
     transform: rotate(-2deg);
     color: white;
 }
 
-/* Badge de Alerta */
+/* Badge Alerta */
 .badge {
     display: inline-block;
     background-color: var(--primary);
@@ -220,26 +157,19 @@ h1, h2, h3 {
     animation: alerta-pulse 0.8s infinite alternate cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
-.badge:hover {
-    animation-play-state: paused;
-    transform: rotate(0deg) scale(1.1);
-    background-color: var(--dark);
-    color: var(--accent);
-    border-color: var(--accent);
-}
-
+.badge:hover { animation-play-state: paused; transform: rotate(0deg) scale(1.1); background-color: var(--dark); color: var(--accent); border-color: var(--accent); }
 @keyframes alerta-pulse {
     0% { transform: rotate(-4deg) skewX(-5deg) scale(1); box-shadow: 6px 6px 0px var(--dark); }
     100% { transform: rotate(-4deg) skewX(-5deg) scale(1.1); box-shadow: 12px 12px 0px var(--accent); background-color: red; }
 }
 
-/* Subtítulo Estilo Cinta */
+/* Subtítulo */
 .subtitle {
     font-size: 0.8rem;
     padding: 8px 20px;
     border-width: 1px;
-    margin-top: 30px; /* Empujado hacia abajo */
-    margin-bottom: 0;
+    margin-top: 30px;
+    margin-bottom: 50px; /* Espacio extra abajo en escritorio para no chocar con contador */
     display: inline-block;
     background-color: var(--dark);
     color: white;
@@ -254,139 +184,68 @@ h1, h2, h3 {
     position: relative;
     z-index: 5;
 }
-
 .subtitle span { color: var(--primary); margin: 0 10px; font-size: 0.8em; }
 .amor { color: var(--accent); font-style: italic; font-family: 'Syne', sans-serif; font-weight: 800; text-decoration: underline wavy var(--primary); text-underline-offset: 5px; }
-
 .subtitle:hover { transform: rotate(0deg) scale(1.05); box-shadow: 12px 12px 0px var(--primary); cursor: help; }
 
 /* =========================================
-   5. CONTADOR (COUNTDOWN)
+   5. CONTADOR (FIXED BOTTOM & MINI)
    ========================================= */
-/* --- CONTADOR (FIXED BOTTOM & MINI) --- */
 #countdown {
-    /* 1. LO SACAMOS DEL FLUJO PARA QUE NO EMPUJE NADA */
+    /* POSICIÓN FIJA AL FONDO */
     position: absolute; 
-    bottom: 20px; /* Pegado al fondo (ajusta si lo quieres más arriba) */
+    bottom: 20px; 
     left: 0; 
-    right: 0; /* Left+Right+Margin auto sirve para centrar cosas absolutas */
-    
-    /* 2. AJUSTES DE VISUALIZACIÓN */
+    right: 0; 
     display: flex;
     justify-content: center;
-    gap: 10px; /* Menos espacio entre cajas */
+    gap: 10px;
     flex-wrap: wrap;
-    margin: 0 auto; /* Centrado horizontal */
-    z-index: 10; /* Asegura que esté encima de la foto */
+    margin: 0 auto;
+    z-index: 10; 
     perspective: 1000px;
 }
 
-/* Estilo de las cajitas (versión mini) */
 .time-box {
     position: relative;
-    padding: 5px 8px; /* Mucho menos relleno */
+    padding: 5px 8px; /* Mini padding */
     border-width: 2px;
-    box-shadow: 4px 4px 0px rgba(0,0,0,1); /* Sombra más pequeña */
+    box-shadow: 4px 4px 0px rgba(0,0,0,1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 45px; /* Ancho fijo más angosto */
-    
-    /* Esto suaviza la animación para que no se vea tosca */
+    min-width: 45px; /* Mini ancho */
     transition: transform 0.2s ease-out; 
 }
 
-/* Ajuste de colores y rotaciones (igual que antes) */
 .time-box:nth-child(1) { background-color: #ff0055; color: white; transform: rotate(-3deg); }
 .time-box:nth-child(2) { background-color: #00e1ff; color: var(--dark); transform: rotate(3deg); }
 .time-box:nth-child(3) { background-color: #ccff00; color: var(--dark); transform: rotate(-2deg); }
+.time-box:nth-child(4) { background-color: white; color: var(--dark); border-color: #ff0055; transform: rotate(2deg); animation: latido-suave 1s infinite; }
 
-/* El segundero con animación, pero controlada */
-.time-box:nth-child(4) { 
-    background-color: white; 
-    color: var(--dark); 
-    border-color: #ff0055; 
-    transform: rotate(2deg); 
-    animation: latido-suave 1s infinite; 
-}
+.number { font-size: 1.2rem; font-weight: 900; font-family: 'Syne', sans-serif; line-height: 1; text-shadow: 1px 1px 0px var(--dark); }
+.label { font-size: 0.5rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; background: var(--dark); color: white; padding: 1px 4px; }
 
-/* Números más pequeños */
-.number {
-    font-size: 1.2rem; /* Antes era 1.5rem */
-    font-weight: 900;
-    font-family: 'Syne', sans-serif;
-    line-height: 1;
-    text-shadow: 1px 1px 0px var(--dark); /* Sombra de texto más fina */
-}
-
-/* Texto DÍAS/HRS más pequeño */
-.label {
-    font-size: 0.5rem; /* Letra pequeñita */
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-top: 2px;
-    background: var(--dark);
-    color: white;
-    padding: 1px 4px;
-}
-
-/* Nueva animación que NO afecta el tamaño de los vecinos */
 @keyframes latido-suave {
     0% { transform: rotate(2deg) scale(1); }
-    50% { transform: rotate(2deg) scale(1.1); } /* Crece un poquito */
+    50% { transform: rotate(2deg) scale(1.1); }
     100% { transform: rotate(2deg) scale(1); }
 }
 
-/* Ajuste crítico para móviles */
-@media (max-width: 768px) {
-    #countdown {
-        bottom: 30px; /* Un poco más arriba en cel para no chocar con bordes */
-        gap: 5px;
-    }
-    
-    .time-box {
-        min-width: 40px;
-        padding: 4px 5px;
-    }
-    
-    .number {
-        font-size: 1rem; /* Números compactos */
-    }
-    
-    .label {
-        font-size: 0.4rem;
-        display: none; /* OPCIONAL: Si quieres ahorrar más espacio, borra esta línea. */
-    }
-}
-
 /* =========================================
-   6. VIDEO SECTION
+   6. RESTO DE SECCIONES
    ========================================= */
-.video-card {
-    background: var(--dark);
-    border: var(--border);
-    box-shadow: var(--shadow);
-    padding: 0;
-    overflow: hidden;
-    margin-bottom: 50px;
-}
-
+.video-card { background: var(--dark); border: var(--border); box-shadow: var(--shadow); padding: 0; overflow: hidden; margin-bottom: 50px; }
 .tv-header { background: white; padding: 10px 15px; border-bottom: var(--border); display: flex; align-items: center; gap: 10px; }
 .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--dark); display: inline-block; }
 .red { background-color: #ff6b6b; } .yellow { background-color: #ffe66d; } .green { background-color: #4ecdc4; }
 .tv-title { font-family: 'Space Grotesk', monospace; font-weight: bold; margin-left: 10px; text-transform: uppercase; font-size: 0.9rem; }
-
 .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
 .video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 .video-caption { padding: 15px; background: var(--accent); border-top: var(--border); text-align: center; font-weight: bold; font-style: italic; }
 .video-card:hover .tv-header { background: #f4f4f4; }
 
-/* =========================================
-   7. LOGÍSTICA Y UBICACIÓN
-   ========================================= */
 .logistics-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; align-items: start; }
-
-/* Fecha */
 .date-card { background: white; border: var(--border); box-shadow: var(--shadow); text-align: center; }
 .date-header { background: var(--dark); color: white; padding: 10px; font-family: monospace; font-weight: bold; letter-spacing: 2px; }
 .date-body { padding: 30px; display: flex; flex-direction: column; }
@@ -395,22 +254,17 @@ h1, h2, h3 {
 .year { font-size: 1.5rem; font-weight: bold; letter-spacing: 5px; border-bottom: 4px solid var(--dark); padding-bottom: 20px; margin-bottom: 20px; }
 .time-stamp { background: var(--accent); padding: 10px; border: 2px solid var(--dark); transform: rotate(-2deg); }
 
-/* Itinerario */
 .timeline-item { display: flex; gap: 20px; margin-bottom: 20px; background: white; border: var(--border); box-shadow: 4px 4px 0px rgba(0,0,0,0.1); padding: 15px; transition: transform 0.2s; }
 .timeline-item:hover { transform: translateX(10px); background: #fffcf0; }
 .time-badge { background: var(--dark); color: white; font-weight: bold; padding: 10px; height: fit-content; font-family: monospace; font-size: 1.2rem; border: 2px solid var(--dark); box-shadow: 3px 3px 0px var(--primary); }
 .event-info h3 { margin-bottom: 5px; font-size: 1.2rem; text-transform: uppercase; }
 .event-info p { font-size: 0.9rem; margin: 0; opacity: 0.8; }
 
-/* Mapa */
 .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
 .map-wrapper { width: 100%; height: 0; padding-bottom: 75%; position: relative; margin: 20px 0; border: 4px solid var(--dark); box-shadow: 6px 6px 0px var(--dark); overflow: hidden; }
 .map-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; filter: grayscale(100%) contrast(1.2); transition: filter 0.5s ease; }
 .map-wrapper:hover iframe { filter: grayscale(0%) contrast(1); cursor: crosshair; }
 
-/* =========================================
-   8. REGALOS (GIFT CARD)
-   ========================================= */
 .gift-card-wrapper { text-align: center; position: relative; padding: 40px; background: white; border: var(--border); box-shadow: var(--shadow); margin-bottom: 50px; }
 .tape-strip { position: absolute; top: -15px; left: 50%; transform: translateX(-50%) rotate(-2deg); background: var(--accent); color: var(--dark); padding: 5px 30px; font-weight: bold; border: 2px solid var(--dark); box-shadow: 4px 4px 0px rgba(0,0,0,0.2); z-index: 10; }
 .bank-ticket { background: var(--dark); color: white; max-width: 500px; margin: 30px auto; padding: 25px; border-radius: 15px; border: 2px solid white; box-shadow: 10px 10px 0px var(--primary); text-align: left; position: relative; overflow: hidden; }
@@ -423,13 +277,12 @@ h1, h2, h3 {
 .ticket-footer { margin-top: 20px; padding-top: 10px; border-top: 1px dashed rgba(255,255,255,0.3); font-size: 0.9rem; font-style: italic; }
 .note { margin-top: 20px; font-size: 0.9rem; opacity: 0.7; }
 
-/* RSVP y Forms */
 .rsvp-section { background-color: var(--secondary); padding: 60px 20px; border-top: var(--border); }
 .rsvp-container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border: var(--border); box-shadow: var(--shadow); }
 input, select { width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid var(--dark); background: #f9f9f9; font-family: inherit; }
 
 /* =========================================
-   9. MÓVIL (RESPONSIVE) - TODO JUNTO AQUÍ
+   7. MÓVIL (RESPONSIVE) - AJUSTE FINAL
    ========================================= */
 @media (max-width: 768px) {
     /* Navbar */
@@ -439,43 +292,38 @@ input, select { width: 100%; padding: 12px; margin-bottom: 15px; border: 2px sol
     .nav-links li { margin: 20px 0; }
     .nav-links a { font-size: 1.5rem; }
 
-    /* Hero */
-    .hero-content h1 { font-size: 1.8rem;
-                        margin-bottom: 0;
-    }
-    .hero-content { 
-        height: 95%; 
-        justify-content: flex-start; /* Todo se alinea hacia arriba */
-        padding-top: 40px; /* Un poco de aire arriba para que no toque el borde */
-        gap: 15px; /* Espacio automático entre el badge, título y subtítulo */
+    /* --- HERO FIX PARA MÓVIL --- */
+    /* Aquí cambiamos la estrategia: Todo arriba para dejar libre el centro/fondo */
+    .hero-content {
+        justify-content: flex-start; /* Alineamos todo arriba */
+        padding-top: 40px; 
+        gap: 15px;
     }
     
-    /* Contador */
-    #countdown {
-        bottom: 80px; /* Lo subimos un poco más para librar la barra de navegación del navegador móvil */
-        gap: 5px;
-    }
-    .time-box { min-width: 70px; padding: 10px; margin-bottom: 15px; }
-    .number { font-size: 2rem; }
+    .hero-content h1 { font-size: 1.8rem; margin-bottom: 0; }
 
-    /* Subtítulo */
-    .subtitle { 
-        font-size: 0.7rem; padding: 10px 15px; width: auto; 
-        margin-top: 5px; /* Reducimos el margen para que quede cerquita del título */
+    /* El subtítulo se pega al título, lejos del contador */
+    .subtitle {
+        margin-top: 5px; 
         margin-bottom: 0;
-        max-width: 90%;
+        font-size: 0.7rem;
+        width: 90%;
+        max-width: auto;
     }
 
-    /* Logística */
+    /* El contador se queda abajo */
+    #countdown { bottom: 50px; }
+    .time-box { min-width: 40px; padding: 4px 5px; }
+    .number { font-size: 1rem; }
+    .label { display: none; } /* Ocultamos etiqueta texto en móvil para ahorrar más espacio */
+
+    /* Otras secciones */
     .logistics-grid { grid-template-columns: 1fr; }
     .day { font-size: 5rem; }
     .stats-grid { grid-template-columns: 1fr; }
-
-    /* Regalos */
-    .number-display { font-size: 1.1rem; }
     .gift-card-wrapper { padding: 40px 15px; }
+    .number-display { font-size: 1.1rem; }
 
-    /* Sección Dónde / Mapa */
     .split-section { display: flex; flex-direction: column; gap: 20px; width: 100%; margin: 0; }
     .fun-card, .map-card, .info-card { width: 100%; padding: 20px 15px; margin-bottom: 0; box-sizing: border-box; }
     .map-wrapper { width: 100%; margin: 10px 0; padding-bottom: 60%; }
