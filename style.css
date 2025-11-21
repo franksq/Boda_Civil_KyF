@@ -267,7 +267,7 @@ h1, h2, h3 {
 #countdown {
     /* 1. LO SACAMOS DEL FLUJO PARA QUE NO EMPUJE NADA */
     position: absolute; 
-    bottom: 100px; /* Pegado al fondo (ajusta si lo quieres más arriba) */
+    bottom: 0px; /* Pegado al fondo (ajusta si lo quieres más arriba) */
     left: 0; 
     right: 0; /* Left+Right+Margin auto sirve para centrar cosas absolutas */
     
