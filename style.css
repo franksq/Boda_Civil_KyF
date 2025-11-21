@@ -522,27 +522,31 @@ body {
 }
 /* --- SUBTÍTULO ESTILO CINTA --- */
 
+/* --- SUBTÍTULO (Ajustado: Más pequeño y más abajo) --- */
 .subtitle {
-    display: inline-block; /* El fondo se ajusta al texto */
-    background-color: var(--dark); /* Fondo Negro */
-    color: white; /* Texto Blanco */
-    
-    /* Tipografía */
+    /* 1. TAMAÑO: Lo hacemos más compacto */
+    font-size: 0.8rem; /* Prueba con 0.7rem si lo quieres aún más chico */
+    padding: 8px 20px; /* Menos "aire" dentro de la caja */
+    border-width: 1px; /* Borde un poco más fino */
+
+    /* 2. POSICIÓN: Lo empujamos hacia abajo */
+    margin-top: 30px; /* Aumenta este número para bajarlo más (ej. 50px) */
+    margin-bottom: 0; /* Mantenemos esto en 0 */
+
+    /* Estilos visuales (Mantén estos para que se vea igual de cool) */
+    display: inline-block;
+    background-color: var(--dark);
+    color: white;
     font-family: 'Space Grotesk', monospace;
-    font-size: 1.2rem;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
+    outline: 2px solid var(--dark); /* Borde externo */
+    border: 1px solid white; /* Borde interno */
     
-    /* Espaciado y Bordes */
-    padding: 15px 30px;
-    margin-bottom: 30px;
-    border: 2px solid white; /* Un borde fino blanco dentro del negro */
-    outline: 4px solid var(--dark); /* Un segundo borde negro por fuera */
-    
-    /* La magia: Rotación y Sombra */
-    transform: rotate(2deg); /* Inclinado hacia el lado contrario del título */
-    box-shadow: 8px 8px 0px var(--secondary); /* Sombra Turquesa sólida */
+    /* Mantenemos la inclinación o la quitamos según tu gusto */
+    transform: rotate(2deg); 
+    box-shadow: 5px 5px 0px var(--secondary);
     
     position: relative;
     z-index: 5;
