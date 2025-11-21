@@ -79,7 +79,7 @@ h1, h2, h3 {
        Sin esto, ¡el texto blanco probablemente no se leería bien sobre la foto!
        Puedes aumentar el 0.5 a 0.7 si necesitas más oscuridad, o bajarlo a 0.3.
     */
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('portada-boda.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('arcos\ save\ the\ date.jpg');
 
     /* Asegura que la imagen cubra todo el espacio sin deformarse */
     background-size: cover;
