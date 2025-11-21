@@ -62,41 +62,34 @@ h1, h2, h3 {
 
 /* Hero Section */
 /* --- HERO SECTION CON IMAGEN DE FONDO --- */
-
+/* Ajustamos la sección principal */
 .hero-section {
-    height: 90vh; /* Altura del 90% de la pantalla */
+    /* Aseguramos que ocupe toda la pantalla visible */
+    height: 100vh; 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    border-bottom: var(--border);
-    color: white; /* Forzamos que todo el texto aquí sea blanco para que se lea */
-
-    /* --- AQUÍ ESTÁ LA MAGIA DEL FONDO --- */
-
-    /* Usamos un truco: "linear-gradient" encima de la "url".
-       Esto crea una capa negra semitransparente (rgba 0,0,0,0.5) sobre tu foto.
-       Sin esto, ¡el texto blanco probablemente no se leería bien sobre la foto!
-       Puedes aumentar el 0.5 a 0.7 si necesitas más oscuridad, o bajarlo a 0.3.
-    */
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('arcos-save-the-date.jpg');
-
-    /* Asegura que la imagen cubra todo el espacio sin deformarse */
+    /* Mantenemos tu fondo de imagen aquí... */
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('nombre-de-tu-foto.jpg');
     background-size: cover;
-    
-    /* Centra la imagen para que se vea la parte importante */
     background-position: center center;
-    
-    /* Evita que se repita tipo mosaico */
-    background-repeat: no-repeat;
+    padding: 20px; /* Un poco de margen para que no toque los bordes */
 }
 
-/* Ajuste opcional: Si el título h1 tiene fondo blanco, quizás quieras quitárselo ahora */
-.hero-content h1 {
-    /* background: white;  <-- Si tenías esto, coméntalo o bórralo */
-    background: transparent; /* O ponlo transparente */
-    text-shadow: 3px 3px 0px var(--dark); /* Añade sombra para que resalte sobre la foto */
+/* AQUÍ ESTÁ EL TRUCO: Estiramos el contenido y separamos los extremos */
+.hero-content {
+    height: 90%; /* Ocupa el 90% de la altura disponible */
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    
+    /* 'space-between' manda el primer bloque arriba y el último abajo */
+    justify-content: space-between; 
+    align-items: center;
 }
+
 
 .hero-content h1 {
     font-size: 4rem;
