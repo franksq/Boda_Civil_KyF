@@ -92,13 +92,13 @@ h1, h2, h3 {
 
 
 .hero-content h1 {
-    font-size: 4rem;
-    line-height: 1;
-    margin-bottom: 20px;
-    background: white;
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    background: transparent;
     padding: 20px;
     border: var(--border);
-    box-shadow: var(--shadow);
+    box-shadow: 2px 2px 0px var(--dark); /* Sombra un poco más fina */
     transform: rotate(-2deg); /* Ligera rotación para que se vea divertido */
 }
 
@@ -374,15 +374,15 @@ body {
     letter-spacing: 1px;
     
     /* Tamaño y bordes */
-    padding: 12px 25px;
-    font-size: 1.3rem;
+    padding: 8px 15px;
+    font-size: 0.9rem;
     border: 4px solid var(--dark); /* Borde negro grueso */
     
     /* La magia "fuera de lo común": Sombra dura e inclinación */
     box-shadow: 6px 6px 0px var(--dark);
     transform: rotate(-4deg) skewX(-5deg); /* Inclinado y deformado */
     
-    margin-bottom: 30px; /* Separación del título principal */
+    margin-bottom: 15px; /* Separación del título principal */
     position: relative;
     
     /* La animación */
@@ -422,20 +422,21 @@ body {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin-top: 0px;
+    margin-bottom: 20px;
     perspective: 1000px; /* Para efectos 3D si se necesitan */
 }
 
 /* Estilo base de las cajas */
 .time-box {
     position: relative;
-    padding: 15px 20px;
-    border: 4px solid var(--dark);
+    padding: 8px 10px;
+    border-width: 2px; /* Borde un poco más fino */
     box-shadow: 8px 8px 0px rgba(0,0,0,1); /* Sombra sólida y dura */
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 90px;
+    min-width: 60px;
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -482,7 +483,7 @@ body {
 /* --- TIPOGRAFÍA Y EFECTO GLITCH --- */
 
 .number {
-    font-size: 2.8rem;
+    font-size: 1.5rem;
     font-weight: 900;
     font-family: 'Syne', sans-serif;
     line-height: 1;
@@ -491,7 +492,7 @@ body {
 }
 
 .label {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 2px;
