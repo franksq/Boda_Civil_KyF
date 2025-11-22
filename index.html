@@ -216,7 +216,13 @@
                 <p class="form-helper">
                     * Nos pondremos en contacto contigo en caso de que tengas menos o más lugares asignados.
                 </p>
-                <input type="number" name="entry.1424661284" placeholder="0" min="0" max="10" required>
+                <input type="number" 
+                        name="entry.1424661284" 
+                        placeholder="0" 
+                        min="0" 
+                        max="10" 
+                        required
+                        oninput="if(this.value > 10) this.value = 10; if(this.value < 0) this.value = 0;">
             </div>
 
             <div class="form-group">
