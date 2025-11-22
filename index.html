@@ -186,26 +186,57 @@
     </div>
 </section>
 
-    <section id="rsvp" class="rsvp-section">
-        <div class="rsvp-container">
-            <h2>¿Vienes o te lo pierdes?</h2>
-            <form id="rsvp-form">
-                <div class="form-group">
-                    <label>Nombre del culpable:</label>
-                    <input type="text" placeholder="Tu nombre aquí" required>
-                </div>
-                <div class="form-group">
-                    <label>Estado:</label>
-                    <select>
-                        <option>¡Obvio voy!</option>
-                        <option>No, soy aguafiestas</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-main">Enviar Confirmación</button>
-            </form>
-        </div>
-    </section>
+<section id="rsvp" class="rsvp-section">
+    <div class="rsvp-container">
+        <h2 id="rsvp-title">¿Vienes o te lo pierdes?</h2>
+        
+        <script type="text/javascript">var submitted=false;</script>
+        
+        <form id="rsvp-form" 
+              action="https://docs.google.com/forms/d/e/1FAIpQLSdqEVVvdHUPymFTCJ74g-9TOJ9DAznOew1t6wAw2tG7AlSZVQ/formResponse" 
+              method="POST" 
+              target="hidden_iframe" 
+              onsubmit="submitted=true;">
+            
+            <div class="form-group">
+                <label>Nombre completo:</label>
+                <input type="text" name="entry.1418023657" placeholder="Escribe tu nombre" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Estado:</label>
+                <select name="entry.877086558">
+                    <option value="¡Obvio voy!">¡Obvio voy!</option>
+                    <option value="No, y me arrepentiré">No, y me arrepentiré</option>
+                    <option value="Solo voy por el pastel">Solo voy por el pastel</option>
+                </select>
+            </div>
 
+            <div class="form-group">
+                <label>¿Cuántas personas asistirán contigo?</label>
+                <p class="form-helper">
+                    * Nos pondremos en contacto contigo en caso de que tengas menos o más lugares asignados.
+                </p>
+                <input type="number" name="entry.1424661284" placeholder="0" min="0" max="10" required>
+            </div>
+
+            <div class="form-group">
+                <label>Déjanos tus buenos deseos, ¡Nos vemos pronto!</label>
+                <textarea name="entry.2606285" rows="4" placeholder="Escribe algo bonito aquí..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-main">Enviar Confirmación</button>
+        </form>
+
+        <div id="success-msg" class="status-msg success" style="display:none;">
+            ¡Recibido! Gracias por tus palabras. Nos vemos en la boda. 🥂
+        </div>
+
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+                onload="if(submitted) {window.location='#rsvp'; document.getElementById('rsvp-form').style.display='none'; document.getElementById('success-msg').style.display='block';}">
+        </iframe>
+    </div>
+</section>
     <footer>
         <p>Hecho con ❤️ y mucho ☕ por los novios.</p>
     </footer>
